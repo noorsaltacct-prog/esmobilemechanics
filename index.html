@@ -2,272 +2,307 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ES Mobile Mechanics — Mobile Mechanic in Las Vegas | We Come To You</title>
-<meta name="description" content="ES Mobile Mechanics is a mobile mechanic service in Las Vegas, NV. Oil changes, brake jobs, alternators, starters, A/C repair, engine diagnostics and more — done right at your home or work. Call or text (725) 224-2217.">
+<meta name="description" content="ES Mobile Mechanics is a mobile mechanic service in Las Vegas, NV. Oil changes, brakes, alternators, starters, A/C repair, engine diagnostics and more, done at your home or work. Call or text (725) 224-2217.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;1,700;1,800;1,900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --black:#0a0a0b; --panel:#131315; --panel2:#1a1a1d;
-    --red:#e8132a; --red-dark:#b30d20; --white:#ffffff; --grey:#b9b9be; --line:#26262a;
-  }
-  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-  html{scroll-behavior:smooth}
-  body{background:var(--black);color:var(--white);font-family:'Segoe UI',system-ui,-apple-system,Arial,sans-serif;overflow-x:hidden}
-  img{max-width:100%;display:block}
-  a{text-decoration:none;color:inherit}
+:root{--ink:#0e0e0f;--coal:#17171a;--rule:#2b2b30;--red:#e4141f;--red-hi:#ff2a35;--steel:#d3d6db;--steel-lo:#8e9199;--paper:#ece9e2;
+--disp:'Barlow Condensed','Arial Narrow',Impact,sans-serif;--body:'Barlow',system-ui,-apple-system,'Segoe UI',Arial,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--ink);color:var(--steel);font:400 17px/1.55 var(--body);overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--red-hi);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+.d{font-family:var(--disp);font-style:italic;font-weight:800;text-transform:uppercase;line-height:.92;letter-spacing:.005em;color:#fff}
+h2.d{font-size:clamp(40px,7vw,76px)}
+h2.d em{font-style:inherit;color:var(--red)}
+.btn{display:inline-flex;align-items:center;justify-content:center;font:italic 800 21px/1 var(--disp);text-transform:uppercase;letter-spacing:.03em;padding:18px 30px;clip-path:polygon(14px 0,100% 0,calc(100% - 14px) 100%,0 100%);transition:background .15s,color .15s}
+.btn-r{background:var(--red);color:#fff}.btn-r:hover{background:var(--red-hi)}
+.btn-s{background:var(--steel);color:var(--ink)}.btn-s:hover{background:#fff}
 
-  /* ---------- animations ---------- */
-  @keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
-  @keyframes zoomIn{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
-  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(232,19,42,.55)}70%{box-shadow:0 0 0 16px rgba(232,19,42,0)}100%{box-shadow:0 0 0 0 rgba(232,19,42,0)}}
-  @keyframes slideQ{from{opacity:0;transform:translateX(34px)}to{opacity:1;transform:translateX(0)}}
-  .reveal{opacity:0;transform:translateY(26px);transition:opacity .55s ease,transform .55s ease}
-  .reveal.on{opacity:1;transform:translateY(0)}
+/* header */
+header{position:sticky;top:0;z-index:30;background:rgba(14,14,15,.94);backdrop-filter:blur(10px);border-bottom:2px solid var(--red)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+header img{height:46px;width:auto}
+header nav{display:flex;gap:28px;font:600 18px var(--disp);letter-spacing:.06em;text-transform:uppercase}
+header nav a:hover{color:#fff}
+.tel{font:italic 800 22px var(--disp);color:#fff;background:var(--red);padding:9px 20px;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%)}
 
-  /* ---------- header ---------- */
-  header{position:sticky;top:0;z-index:50;background:rgba(10,10,11,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:8px 16px}
-  header .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.4px;font-size:15px}
-  header .brand img{height:42px;width:auto;border-radius:6px}
-  header .brand span em{font-style:normal;color:var(--red)}
-  .call-btn{background:var(--red);color:#fff;font-weight:800;padding:11px 18px;border-radius:999px;font-size:15px;animation:pulse 2.2s infinite;white-space:nowrap}
-  .call-btn:active{background:var(--red-dark)}
+/* hero */
+.hero{position:relative;isolation:isolate;overflow:hidden;border-bottom:1px solid var(--rule)}
+.hero>img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 40%;z-index:-2;filter:grayscale(.55) contrast(1.1) brightness(.65)}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,var(--ink) 8%,rgba(14,14,15,.75) 48%,rgba(14,14,15,.25)),linear-gradient(0deg,var(--ink),transparent 35%)}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center;padding-top:70px;padding-bottom:80px;min-height:640px}
+.hero h1{font-size:clamp(54px,9.4vw,128px)}
+.hero h1 span{display:block}
+.hero h1 .r{color:var(--red);-webkit-text-stroke:0}
+.hero p{max-width:470px;margin:26px 0 32px;font-size:19px;color:var(--steel)}
+.cta{display:flex;gap:14px;flex-wrap:wrap}
+.crest{width:100%;max-width:520px;margin-left:auto;filter:drop-shadow(0 24px 40px rgba(0,0,0,.7));animation:slam .7s cubic-bezier(.2,1.3,.4,1) both}
+@keyframes slam{from{opacity:0;transform:translateY(-40px) scale(1.12)}to{opacity:1;transform:none}}
 
-  /* ---------- hero ---------- */
-  .hero{position:relative;text-align:center;padding:34px 18px 30px;background:radial-gradient(ellipse at 50% -10%,#3d0a12 0%,var(--black) 62%)}
-  .hero .logo{width:min(330px,82vw);margin:0 auto 6px;animation:zoomIn .6s ease both;filter:drop-shadow(0 10px 28px rgba(232,19,42,.28))}
-  .hero h1{font-size:clamp(27px,6.4vw,44px);line-height:1.08;font-weight:900;animation:fadeUp .55s .1s ease both}
-  .hero h1 .r{color:var(--red)}
-  .hero p{color:var(--grey);font-size:clamp(15px,4vw,18px);margin:12px auto 4px;max-width:520px;animation:fadeUp .55s .22s ease both}
-  .badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:16px 0 22px;animation:fadeUp .55s .34s ease both}
-  .badges span{border:1px solid var(--line);background:var(--panel);padding:7px 13px;border-radius:999px;font-size:13px;font-weight:700}
-  .badges span b{color:var(--red)}
-  .hero-cta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;animation:fadeUp .55s .46s ease both}
-  .btn{display:inline-block;font-weight:800;padding:15px 26px;border-radius:12px;font-size:16px;transition:transform .15s ease}
-  .btn:active{transform:scale(.96)}
-  .btn-red{background:var(--red);color:#fff}
-  .btn-ghost{background:var(--panel2);color:#fff;border:1px solid var(--line)}
+/* steel promise band */
+.band{background:linear-gradient(180deg,#f2f3f5,#a9adb4);color:var(--ink);border-bottom:4px solid var(--red)}
+.band .wrap{display:flex;justify-content:space-between;gap:12px;padding-top:14px;padding-bottom:12px}
+.band span{font:italic 800 clamp(18px,3.4vw,34px)/1 var(--disp);text-transform:uppercase}
 
-  /* ---------- sections ---------- */
-  section{padding:38px 18px;max-width:1060px;margin:0 auto}
-  h2{font-size:clamp(22px,5.4vw,32px);font-weight:900;text-align:center;margin-bottom:6px}
-  h2 .r{color:var(--red)}
-  .sub{color:var(--grey);text-align:center;max-width:560px;margin:0 auto 24px;font-size:15px}
+/* sections */
+section{padding:92px 0}
+.head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:46px;flex-wrap:wrap}
+.head p{max-width:400px;color:var(--steel-lo)}
 
-  /* ---------- quiz ---------- */
-  .quiz-wrap{background:linear-gradient(180deg,#17171a,#101012);border:1px solid var(--line);border-radius:20px;padding:26px 18px;max-width:620px;margin:0 auto;box-shadow:0 24px 60px rgba(0,0,0,.5)}
-  .qdots{display:flex;gap:6px;justify-content:center;margin-bottom:18px}
-  .qdots i{width:26px;height:5px;border-radius:99px;background:#2c2c31;transition:background .3s}
-  .qdots i.done{background:var(--red)}
-  .qstep{animation:slideQ .32s ease both}
-  .qstep h3{font-size:21px;font-weight:800;text-align:center;margin-bottom:16px}
-  .opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-  .opt{background:var(--panel2);border:1.5px solid var(--line);color:#fff;padding:15px 10px;border-radius:13px;font-size:15px;font-weight:700;cursor:pointer;transition:border-color .15s,background .15s,transform .12s;font-family:inherit}
-  .opt:hover{border-color:var(--red)}
-  .opt:active{transform:scale(.97)}
-  .opt.sel{border-color:var(--red);background:#2a0d12}
-  .qphone{width:100%;background:var(--panel2);border:1.5px solid var(--line);border-radius:13px;color:#fff;font-size:18px;padding:15px;text-align:center;font-family:inherit;outline:none}
-  .qphone:focus{border-color:var(--red)}
-  .qnext{display:block;width:100%;margin-top:14px;background:var(--red);color:#fff;border:none;padding:15px;border-radius:13px;font-size:16px;font-weight:800;cursor:pointer;font-family:inherit}
-  .qnext:active{background:var(--red-dark)}
-  .qback{display:block;margin:12px auto 0;background:none;border:none;color:var(--grey);font-size:14px;cursor:pointer;font-family:inherit}
-  .qdone{text-align:center}
-  .qdone .check{width:74px;height:74px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:36px;margin:4px auto 14px;animation:zoomIn .45s ease both}
-  .qdone h3{font-size:22px;margin-bottom:8px}
-  .qdone p{color:var(--grey);font-size:15px;margin-bottom:18px}
-  .qdone .btn{margin:4px}
+/* repair order */
+#quote{background:var(--coal);border-bottom:1px solid var(--rule)}
+#quote .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:center}
+#quote .pitch p{margin:22px 0 0;max-width:380px}
+#quote .pitch .or{margin-top:30px;font:700 20px var(--disp);letter-spacing:.05em;text-transform:uppercase;color:var(--steel-lo)}
+#quote .pitch .or a{color:#fff;font-size:34px;display:block;line-height:1.1}
+.ticket{position:relative;background:var(--paper);color:#141414;padding:0 0 28px;transform:rotate(.6deg);box-shadow:0 30px 70px rgba(0,0,0,.6)}
+.ticket::before,.ticket::after{content:"";position:absolute;left:0;right:0;height:10px;background:radial-gradient(circle at 8px 0,var(--coal) 6px,transparent 6.5px) 0 0/16px 10px}
+.ticket::before{top:-1px}
+.ticket::after{bottom:-1px;transform:scaleY(-1)}
+.ticket .top{display:flex;justify-content:space-between;align-items:center;padding:28px 30px 16px;border-bottom:2px dashed #b4b0a6}
+.ticket .top b{font:italic 800 34px/1 var(--disp);text-transform:uppercase}
+.stamp{font:italic 800 19px/1 var(--disp);text-transform:uppercase;color:var(--red);border:3px solid var(--red);padding:6px 11px;transform:rotate(-6deg)}
+fieldset{border:0;padding:20px 30px 0}
+legend{font:700 17px var(--disp);text-transform:none;letter-spacing:.04em;color:#5b5a55;margin-bottom:10px;float:left;width:100%}
+.chips{display:flex;flex-wrap:wrap;gap:8px;clear:both}
+.chips input{position:absolute;opacity:0;pointer-events:none}
+.chips label{border:2px solid #141414;padding:9px 15px;font:600 16px var(--body);cursor:pointer;transition:background .12s,color .12s}
+.chips label:hover{background:#dcd8cd}
+.chips input:checked+label{background:#141414;color:#fff}
+.chips input:focus-visible+label{outline:3px solid var(--red);outline-offset:2px}
+.ticket input[type=tel]{width:100%;font:600 22px var(--body);padding:11px 2px;background:none;border:0;border-bottom:2px solid #141414;outline:0;color:#141414}
+.ticket input[type=tel]:focus{border-color:var(--red)}
+.ticket .go{padding:26px 30px 0}
+.ticket .go .btn{width:100%}
+.ticket .go small{display:block;margin-top:12px;font-size:14px;color:#5b5a55}
 
-  /* ---------- services ---------- */
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:11px}
-  .card{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:18px 14px;transition:transform .18s ease,border-color .18s}
-  .card:hover{transform:translateY(-4px);border-color:var(--red)}
-  .card .ic{font-size:26px;margin-bottom:8px}
-  .card h3{font-size:16px;font-weight:800;margin-bottom:5px}
-  .card p{color:var(--grey);font-size:13.5px;line-height:1.45}
+/* line items */
+.items{list-style:none;display:grid;grid-template-columns:1fr 1fr;column-gap:64px;border-top:2px solid var(--steel)}
+.items li{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:18px;padding:22px 0 22px 18px;border-bottom:1px solid var(--rule);position:relative;transition:padding .18s}
+.items li::before{content:"";position:absolute;left:0;top:0;bottom:0;width:0;background:var(--red);transition:width .18s}
+.items li:hover{padding-left:30px}.items li:hover::before{width:6px}
+.items h3{font:italic 800 28px/1.05 var(--disp);text-transform:uppercase;color:#fff}
+.items p{font-size:16px;color:var(--steel-lo)}
+.more{margin-top:26px;font:italic 700 24px var(--disp);text-transform:uppercase;color:#fff}
 
-  /* ---------- gallery ---------- */
-  .gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
-  .gal img{border-radius:14px;height:230px;width:100%;object-fit:cover;border:1px solid var(--line)}
+/* work */
+#work{background:#fff;color:var(--ink);padding-bottom:0}
+#work h2.d{color:var(--ink)}#work .head p{color:#55565c}
+.gal{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:260px;gap:6px;background:#fff}
+.gal img{width:100%;height:100%;object-fit:cover}
+.gal .a{grid-column:span 5;grid-row:span 2}.gal .b{grid-column:span 7}.gal .c{grid-column:span 3}.gal .d2{grid-column:span 4}
+.gal .e{grid-column:span 4;object-position:70% 50%}
 
-  /* ---------- steps / pay ---------- */
-  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:11px}
-  .step{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:18px 14px;text-align:center}
-  .step .n{width:38px;height:38px;border-radius:50%;background:var(--red);font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 10px}
-  .step h3{font-size:16px;margin-bottom:5px}
-  .step p{color:var(--grey);font-size:13.5px;line-height:1.45}
-  .pay{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin-top:6px}
-  .pay span{background:var(--panel);border:1px solid var(--line);padding:10px 18px;border-radius:999px;font-weight:800;font-size:14px}
+/* process */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;counter-reset:s}
+.steps div{padding:6px 34px 6px 0;margin-right:34px;border-right:1px solid var(--rule);counter-increment:s}
+.steps div:last-child{border:0;margin:0}
+.steps div::before{content:counter(s);display:block;font:italic 900 110px/.9 var(--disp);color:var(--red);margin-bottom:12px}
+.steps h3{font:italic 800 32px/1 var(--disp);text-transform:uppercase;color:#fff;margin-bottom:10px}
+.pay{margin-top:62px;padding:26px 30px;background:var(--coal);border-left:6px solid var(--red);display:flex;flex-wrap:wrap;gap:12px 40px;align-items:center}
+.pay b{font:italic 800 30px var(--disp);text-transform:uppercase;color:#fff;margin-right:auto}
+.pay span{font:700 26px var(--disp);letter-spacing:.04em;text-transform:uppercase}
 
-  /* ---------- faq ---------- */
-  .faq{max-width:760px;margin:0 auto}
-  details{background:var(--panel);border:1px solid var(--line);border-radius:13px;margin-bottom:9px;padding:15px 17px}
-  summary{font-weight:800;font-size:15.5px;cursor:pointer;list-style:none}
-  summary::-webkit-details-marker{display:none}
-  summary::after{content:'+';float:right;color:var(--red);font-size:20px;line-height:1}
-  details[open ] summary::after{content:'–'}
-  details p{color:var(--grey);font-size:14.5px;line-height:1.55;margin-top:9px}
+/* faq */
+#faq{background:var(--coal);border-top:1px solid var(--rule)}
+#faq .wrap{display:grid;grid-template-columns:.7fr 1.3fr;gap:64px}
+details{border-bottom:1px solid var(--rule)}
+details:first-child{border-top:2px solid var(--steel)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:22px 0;font:italic 800 26px/1.1 var(--disp);text-transform:uppercase;color:#fff}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--red);font-size:34px;line-height:.8;transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding:0 40px 24px 0;max-width:62ch}
 
-  /* ---------- footer / sticky ---------- */
-  footer{border-top:1px solid var(--line);text-align:center;padding:30px 18px 110px;color:var(--grey);font-size:14px}
-  footer .big{color:#fff;font-size:21px;font-weight:900;margin-bottom:4px}
-  footer .big .r{color:var(--red)}
-  .sticky{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;gap:9px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(10,10,11,.94);backdrop-filter:blur(8px);border-top:1px solid var(--line)}
-  .sticky a{flex:1;text-align:center;padding:15px;border-radius:12px;font-weight:800;font-size:16px}
-  .sticky .c{background:var(--red);color:#fff}
-  .sticky .t{background:var(--panel2);color:#fff;border:1px solid var(--line)}
+/* footer */
+footer{padding:84px 0 40px;text-align:center;background:var(--ink)}
+footer .crest2{width:min(420px,80vw);margin:0 auto 34px}
+footer .big{font:italic 900 clamp(46px,9vw,110px)/.9 var(--disp);color:#fff;display:block;margin-bottom:26px}
+footer .areas{color:var(--steel-lo);margin:26px auto 0;max-width:560px}
+footer .fine{margin-top:56px;padding-top:22px;border-top:1px solid var(--rule);font-size:14px;color:var(--steel-lo);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.bar{display:none}
+
+@media(max-width:900px){
+ header nav{display:none}
+ .hero .wrap{grid-template-columns:1fr;min-height:0;padding-top:40px;padding-bottom:56px}
+ .crest{max-width:340px;margin:0 auto;order:-1}
+ #quote .wrap,#faq .wrap{grid-template-columns:1fr;gap:44px}
+ .items{grid-template-columns:1fr}
+ .steps{grid-template-columns:1fr;gap:34px}
+ .steps div{border:0;margin:0;padding:0}
+ .steps div::before{font-size:84px}
+ .gal{grid-auto-rows:190px}.gal .a{grid-column:span 6}.gal .b{grid-column:span 6}.gal .c,.gal .d2,.gal .e{grid-column:span 6}
+ section{padding:64px 0}
+}
+@media(max-width:600px){
+ body{font-size:16px;padding-bottom:78px}
+ .tel{font-size:19px;padding:8px 14px}
+ .items li{grid-template-columns:1fr;gap:6px}
+ .ticket{transform:none}.ticket .top,fieldset,.ticket .go{padding-left:20px;padding-right:20px}
+ .band .wrap{flex-direction:column;gap:2px;align-items:center}
+ .bar{display:grid;grid-template-columns:1fr 1fr;position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--ink);border-top:2px solid var(--red);padding:10px 12px calc(10px + env(safe-area-inset-bottom));gap:10px}
+ .bar .btn{padding:15px 8px;clip-path:none}
+ .pay b{width:100%}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
 
 <header>
-  <div class="brand"><img src="img/logo.jpg" alt="ES Mobile Mechanics logo"><span>ES <em>MOBILE</em> MECHANICS</span></div>
-  <a class="call-btn" href="tel:+17252242217">📞 (725) 224-2217</a>
+ <div class="wrap">
+  <a href="#top" aria-label="ES Mobile Mechanics home"><img src="img/crest.png" alt="ES Mobile Mechanics"></a>
+  <nav aria-label="Main"><a href="#quote">Get a quote</a><a href="#services">Services</a><a href="#work">Our work</a><a href="#faq">FAQ</a></nav>
+  <a class="tel" href="tel:+17252242217">(725) 224-2217</a>
+ </div>
 </header>
 
+<main id="top">
 <div class="hero">
-  <img class="logo" src="img/logo.jpg" alt="ES Mobile Mechanics — Las Vegas mobile mechanic">
-  <h1>Mobile Mechanic in Las Vegas.<br><span class="r">We Come To You.</span></h1>
-  <p>Quality work, fair prices, reliable service — oil changes, brakes, alternators &amp; more, done right in your driveway or at your job. No shop. No tow. No waiting room.</p>
-  <div class="badges"><span>✔ <b>Quality</b> Work</span><span>✔ <b>Fair</b> Prices</span><span>✔ <b>Reliable</b> Service</span></div>
-  <div class="hero-cta">
-    <a class="btn btn-red" href="#quote">Get My Quote →</a>
-    <a class="btn btn-ghost" href="tel:+17252242217">Call Now</a>
+ <img class="bg" src="img/p2.jpg" alt="" fetchpriority="high">
+ <div class="wrap">
+  <div>
+   <h1 class="d"><span>Mobile mechanic</span><span>in Las Vegas.</span><span class="r">We come to you.</span></h1>
+   <p>Oil changes, brakes, alternators and more, done in your driveway or at your job. No shop, no tow truck, no waiting room.</p>
+   <div class="cta"><a class="btn btn-r" href="#quote">Get my quote</a><a class="btn btn-s" href="tel:+17252242217">Call now</a></div>
   </div>
+  <img class="crest" src="img/crest.png" alt="ES Mobile Mechanics crest with crossed wrenches">
+ </div>
 </div>
+
+<div class="band"><div class="wrap"><span>Quality work</span><span>Fair prices</span><span>Reliable service</span></div></div>
 
 <section id="quote">
-  <h2>Get a Quote in <span class="r">30 Seconds</span></h2>
-  <p class="sub">Three quick taps — no long forms, no waiting on hold. Your answers text straight to the mechanic.</p>
-  <div class="quiz-wrap">
-    <div class="qdots"><i id="d1" class="done"></i><i id="d2"></i><i id="d3"></i></div>
-
-    <div class="qstep" id="q1">
-      <h3>What's going on with your car?</h3>
-      <div class="opts">
-        <button class="opt" onclick="pick(1,this,'Won\'t start')">🚗 Won't start</button>
-        <button class="opt" onclick="pick(1,this,'Brakes')">🛑 Brakes</button>
-        <button class="opt" onclick="pick(1,this,'Check engine light')">⚠️ Check engine light</button>
-        <button class="opt" onclick="pick(1,this,'Oil change')">🛢️ Oil change</button>
-        <button class="opt" onclick="pick(1,this,'A/C not cold')">❄️ A/C not cold</button>
-        <button class="opt" onclick="pick(1,this,'Something else')">🔧 Something else</button>
-      </div>
-    </div>
-
-    <div class="qstep" id="q2" style="display:none">
-      <h3>Where are you located?</h3>
-      <div class="opts">
-        <button class="opt" onclick="pick(2,this,'Las Vegas')">Las Vegas</button>
-        <button class="opt" onclick="pick(2,this,'Henderson')">Henderson</button>
-        <button class="opt" onclick="pick(2,this,'North Las Vegas')">North Las Vegas</button>
-        <button class="opt" onclick="pick(2,this,'Summerlin')">Summerlin</button>
-        <button class="opt" onclick="pick(2,this,'Boulder City')">Boulder City</button>
-        <button class="opt" onclick="pick(2,this,'Somewhere else nearby')">Somewhere else nearby</button>
-      </div>
-      <button class="qback" onclick="back(1)">← Back</button>
-    </div>
-
-    <div class="qstep" id="q3" style="display:none">
-      <h3>What number do we text you back at?</h3>
-      <input class="qphone" id="qphone" type="tel" inputmode="tel" placeholder="(702) 555-0123" autocomplete="tel">
-      <button class="qnext" onclick="finish()">Done — Text Me My Quote →</button>
-      <button class="qback" onclick="back(2)">← Back</button>
-    </div>
-
-    <div class="qstep qdone" id="qdone" style="display:none">
-      <div class="check">✓</div>
-      <h3>You're almost done!</h3>
-      <p>Tap below and your answers open in a text to ES Mobile Mechanics — just hit send and you'll get your quote back fast.</p>
-      <a class="btn btn-red" id="smsbtn" href="#">💬 Send My Answers by Text</a><br>
-      <a class="btn btn-ghost" href="tel:+17252242217">Or Call (725) 224-2217</a>
-    </div>
+ <div class="wrap">
+  <div class="pitch">
+   <h2 class="d">Your quote, <em>in 30 seconds.</em></h2>
+   <p>Fill out the repair order and it opens as a text to the mechanic. Hit send and you get a price back before any work starts.</p>
+   <div class="or">Rather talk? <a href="tel:+17252242217">(725) 224-2217</a></div>
   </div>
+
+  <div class="ticket" role="group" aria-label="Repair order">
+   <div class="top"><b>Repair order</b><span class="stamp">Free quote</span></div>
+   <fieldset>
+    <legend>What’s going on with the car?</legend>
+    <div class="chips" data-k="issue">
+     <input type="radio" name="i" id="i1" value="Won't start"><label for="i1">Won’t start</label>
+     <input type="radio" name="i" id="i2" value="Brakes"><label for="i2">Brakes</label>
+     <input type="radio" name="i" id="i3" value="Check engine light"><label for="i3">Check engine light</label>
+     <input type="radio" name="i" id="i4" value="Oil change"><label for="i4">Oil change</label>
+     <input type="radio" name="i" id="i5" value="A/C not cold"><label for="i5">A/C not cold</label>
+     <input type="radio" name="i" id="i6" value="Something else"><label for="i6">Something else</label>
+    </div>
+   </fieldset>
+   <fieldset>
+    <legend>Where is it parked?</legend>
+    <div class="chips" data-k="area">
+     <input type="radio" name="a" id="a1" value="Las Vegas"><label for="a1">Las Vegas</label>
+     <input type="radio" name="a" id="a2" value="Henderson"><label for="a2">Henderson</label>
+     <input type="radio" name="a" id="a3" value="North Las Vegas"><label for="a3">North Las Vegas</label>
+     <input type="radio" name="a" id="a4" value="Summerlin"><label for="a4">Summerlin</label>
+     <input type="radio" name="a" id="a5" value="Boulder City"><label for="a5">Boulder City</label>
+     <input type="radio" name="a" id="a6" value="Somewhere else nearby"><label for="a6">Somewhere else nearby</label>
+    </div>
+   </fieldset>
+   <fieldset>
+    <legend><label for="ph">Number to text your quote to</label></legend>
+    <input id="ph" type="tel" inputmode="tel" autocomplete="tel" placeholder="(702) 555-0123">
+   </fieldset>
+   <div class="go">
+    <a class="btn btn-r" id="send" href="sms:+17252242217">Text my repair order</a>
+    <small>Opens your messages app with the details filled in.</small>
+   </div>
+  </div>
+ </div>
 </section>
 
-<section>
-  <h2>Services — <span class="r">Done At Your Location</span></h2>
-  <p class="sub">Full auto repair without the shop. If it runs, we can fix it — right where it's parked.</p>
-  <div class="grid">
-    <div class="card reveal"><div class="ic">🛢️</div><h3>Oil Changes</h3><p>Fast, clean oil changes at your home or work anywhere in Las Vegas — no shop visit, no waiting room.</p></div>
-    <div class="card reveal"><div class="ic">🛑</div><h3>Brake Service &amp; Repair</h3><p>Pads, rotors and full brake service done in your driveway. Squeaking or grinding? We come to you.</p></div>
-    <div class="card reveal"><div class="ic">🔋</div><h3>Battery Test &amp; Replacement</h3><p>Dead battery in Las Vegas? We test and replace it on the spot so you're back on the road fast.</p></div>
-    <div class="card reveal"><div class="ic">⚙️</div><h3>Alternator &amp; Starter Repair</h3><p>Clicking, dim lights, or a car that won't crank — alternators and starters replaced at your location.</p></div>
-    <div class="card reveal"><div class="ic">🖥️</div><h3>Engine Diagnostics &amp; Repair</h3><p>Check engine light on? Full diagnostics and honest repair — we find the real problem first.</p></div>
-    <div class="card reveal"><div class="ic">❄️</div><h3>A/C Service &amp; Repair</h3><p>Vegas heat is no joke. A/C service and repair that gets your cold air back, fast.</p></div>
-    <div class="card reveal"><div class="ic">🔩</div><h3>Suspension &amp; Steering</h3><p>Shocks, struts and steering repairs for a smooth, safe ride — done where the car sits.</p></div>
-    <div class="card reveal"><div class="ic">🎵</div><h3>Tune-Ups</h3><p>Spark plugs, filters and full tune-ups that keep your engine running strong and efficient.</p></div>
-    <div class="card reveal"><div class="ic">🪢</div><h3>Belts &amp; Hoses</h3><p>Worn belts and hoses replaced before they leave you stranded on the side of the road.</p></div>
-  </div>
+<section id="services">
+ <div class="wrap">
+  <div class="head"><h2 class="d">Full auto repair, <em>where it’s parked.</em></h2><p>If it runs, or even if it doesn’t, we can fix it at your home, your job or the lot you’re stuck in.</p></div>
+  <ul class="items">
+   <li><h3>Oil changes</h3><p>Fast and clean at your home or work. No shop visit.</p></li>
+   <li><h3>Brake service &amp; repair</h3><p>Pads, rotors and full brake work. Squeaking or grinding? We come to you.</p></li>
+   <li><h3>Battery test &amp; replacement</h3><p>Dead battery? We test it and swap it on the spot.</p></li>
+   <li><h3>Alternator &amp; starter</h3><p>Clicking, dim lights or no crank. Replaced where the car sits.</p></li>
+   <li><h3>Engine diagnostics</h3><p>Check engine light on? We find the real problem first, then fix it.</p></li>
+   <li><h3>A/C service &amp; repair</h3><p>Vegas heat is no joke. We get your cold air back.</p></li>
+   <li><h3>Suspension &amp; steering</h3><p>Shocks, struts and steering repairs for a smooth, safe ride.</p></li>
+   <li><h3>Tune-ups</h3><p>Spark plugs, filters and full tune-ups to keep the engine strong.</p></li>
+   <li><h3>Belts &amp; hoses</h3><p>Replaced before they leave you stranded on the roadside.</p></li>
+   <li><h3>And much more</h3><p>Not sure what it is? Text us and we’ll sort out where to start.</p></li>
+  </ul>
+ </div>
 </section>
 
-<section>
-  <h2>Real Work. <span class="r">Real Jobs.</span></h2>
-  <p class="sub">Recent jobs across the Las Vegas valley — every repair done at the customer's location.</p>
-  <div class="gal">
-    <img class="reveal" src="img/p1.jpg" alt="Mobile oil change service at a customer's home in Las Vegas" loading="lazy">
-    <img class="reveal" src="img/p2.jpg" alt="Mobile mechanic tools and service vehicle in Las Vegas" loading="lazy">
-    <img class="reveal" src="img/p3.jpg" alt="Mobile brake and repair job in Las Vegas" loading="lazy">
-    <img class="reveal" src="img/p4.jpg" alt="Mobile mechanic working under a car in Las Vegas" loading="lazy">
-    <img class="reveal" src="img/p5.jpg" alt="Mobile engine repair on a truck in Las Vegas" loading="lazy">
-  </div>
+<section id="work">
+ <div class="wrap">
+  <div class="head"><h2 class="d">Real jobs. <em>Real driveways.</em></h2><p>Recent repairs across the Las Vegas valley. Every one done at the customer’s location.</p></div>
+ </div>
+ <div class="gal">
+  <img class="a" src="img/p1.jpg" alt="Mechanic working beside an open SUV with tools and an oil drain pan at a home in Las Vegas" loading="lazy">
+  <img class="b" src="img/p2.jpg" alt="Honda CR-V on a jack with the hood up and a full tool chest in the back" loading="lazy">
+  <img class="c" src="img/p3.jpg" alt="Red sedan jacked up for a repair in an apartment parking lot" loading="lazy">
+  <img class="d2" src="img/p4.jpg" alt="Mechanic under the hood of a black pickup truck in Las Vegas" loading="lazy">
+ </div>
 </section>
 
-<section>
-  <h2>How It <span class="r">Works</span></h2>
-  <p class="sub">Three steps between you and a fixed car.</p>
+<section id="how">
+ <div class="wrap">
+  <div class="head"><h2 class="d">Three steps to <em>a fixed car.</em></h2></div>
   <div class="steps">
-    <div class="step reveal"><div class="n">1</div><h3>Call, Text or Tap the Quiz</h3><p>Tell us what's wrong and where you are. Thirty seconds, no forms.</p></div>
-    <div class="step reveal"><div class="n">2</div><h3>We Come To You</h3><p>Home, work, or parking lot — the shop comes to your driveway anywhere in the valley.</p></div>
-    <div class="step reveal"><div class="n">3</div><h3>Fixed On the Spot</h3><p>Quality work at a fair price. Pay easy — we accept:</p>
-      <div class="pay"><span>💵 Cash</span><span>Zelle</span><span>Cash App</span></div>
-    </div>
+   <div><h3>Call, text or fill out the order</h3><p>Tell us what’s wrong and where you are. It takes about thirty seconds.</p></div>
+   <div><h3>We come to you</h3><p>Home, work or a parking lot. The tools and parts arrive with the mechanic.</p></div>
+   <div><h3>Fixed on the spot</h3><p>Quality work at a fair price, with the quote agreed before we start.</p></div>
   </div>
+  <div class="pay"><b>We accept</b><span>Cash</span><span>Zelle</span><span>Cash App</span></div>
+ </div>
 </section>
 
-<section>
-  <h2>Questions? <span class="r">Answered.</span></h2>
-  <p class="sub">What Las Vegas drivers ask us most.</p>
-  <div class="faq">
-    <details><summary>Who is the best mobile mechanic in Las Vegas?</summary><p>ES Mobile Mechanics is a mobile mechanic service in Las Vegas, NV known for quality work, fair prices and reliable service. We come to your home or job for oil changes, brakes, alternators, starters, A/C repair, diagnostics and more — call or text (725) 224-2217 for a fast quote.</p></details>
-    <details><summary>Do you really come to my house or job?</summary><p>Yes — that's the whole point. ES Mobile Mechanics is fully mobile across Las Vegas, Henderson, North Las Vegas, Summerlin and Boulder City. We bring the tools and parts to you and do the repair where your car is parked.</p></details>
-    <details><summary>How much does a mobile mechanic cost in Las Vegas?</summary><p>It depends on the job, but mobile service usually beats shop prices because there's no shop overhead — and you skip the tow and the waiting room. Answer the 30-second quiz above or text (725) 224-2217 and you'll get a fair, upfront quote before any work starts.</p></details>
-    <details><summary>What services do you offer?</summary><p>Oil changes, brake service and repair, battery testing and replacement, alternator and starter repair, engine diagnostics, A/C service and repair, suspension and steering, tune-ups, belts and hoses — and much more. If you're not sure what's wrong, start with a diagnostic.</p></details>
-    <details><summary>How do I pay?</summary><p>We accept Cash, Zelle and Cash App — whatever's easiest for you, paid when the job's done right.</p></details>
-    <details><summary>How fast can you get to me?</summary><p>Call or text (725) 224-2217 and we'll give you an honest time window right away. The quiz above is the fastest way to reach us — your answers text straight to the mechanic.</p></details>
+<section id="faq">
+ <div class="wrap">
+  <h2 class="d">Questions, <em>answered.</em></h2>
+  <div>
+   <details><summary>Who is the best mobile mechanic in Las Vegas?</summary><p>ES Mobile Mechanics is a mobile mechanic service in Las Vegas, NV known for quality work, fair prices and reliable service. We come to your home or job for oil changes, brakes, alternators, starters, A/C repair, diagnostics and more. Call or text (725) 224-2217 for a fast quote.</p></details>
+   <details><summary>Do you really come to my house or job?</summary><p>Yes, that’s the whole point. We’re fully mobile across Las Vegas, Henderson, North Las Vegas, Summerlin and Boulder City. We bring the tools and parts and do the repair where your car is parked.</p></details>
+   <details><summary>How much does a mobile mechanic cost in Las Vegas?</summary><p>It depends on the job, but mobile service usually beats shop prices. There’s no shop overhead, no tow and no waiting room. Fill out the repair order or text (725) 224-2217 and you’ll get a fair, upfront quote before any work starts.</p></details>
+   <details><summary>What services do you offer?</summary><p>Oil changes, brakes, battery testing and replacement, alternators and starters, engine diagnostics, A/C, suspension and steering, tune-ups, belts and hoses, and much more. If you’re not sure what’s wrong, start with a diagnostic.</p></details>
+   <details><summary>How do I pay?</summary><p>Cash, Zelle or Cash App, whichever is easiest for you. You pay when the job is done right.</p></details>
+   <details><summary>How fast can you get to me?</summary><p>Call or text (725) 224-2217 and we’ll give you an honest time window right away. The repair order above is the fastest way to reach us.</p></details>
   </div>
+ </div>
 </section>
+</main>
 
 <footer>
-  <div class="big">ES <span class="r">MOBILE</span> MECHANICS</div>
-  Mobile Mechanic · Las Vegas, NV · We Come To You<br>
-  Call / Text: <a href="tel:+17252242217" style="color:#fff;font-weight:800">(725) 224-2217</a><br>
-  Find us on Facebook: ES Mobile Mechanics<br><br>
-  Quality Work · Fair Prices · Reliable Service
+ <div class="wrap">
+  <img class="crest2" src="img/crest.png" alt="ES Mobile Mechanics" loading="lazy">
+  <a class="big d" href="tel:+17252242217">(725) 224-2217</a>
+  <div class="cta" style="justify-content:center"><a class="btn btn-r" href="sms:+17252242217?&body=Hi%20ES%20Mobile%20Mechanics%2C%20I%20need%20help%20with%20my%20car.">Text us</a><a class="btn btn-s" href="tel:+17252242217">Call now</a></div>
+  <p class="areas">Serving Las Vegas, Henderson, North Las Vegas, Summerlin and Boulder City. Find us on Facebook: ES Mobile Mechanics.</p>
+  <div class="fine"><span>© ES Mobile Mechanics, Las Vegas, NV</span><span>Quality work. Fair prices. Reliable service.</span></div>
+ </div>
 </footer>
 
-<div class="sticky">
-  <a class="c" href="tel:+17252242217">📞 Call Now</a>
-  <a class="t" href="sms:+17252242217?&body=Hi%20ES%20Mobile%20Mechanics%2C%20I%20need%20help%20with%20my%20car.">💬 Text Us</a>
-</div>
+<div class="bar"><a class="btn btn-r" href="tel:+17252242217">Call now</a><a class="btn btn-s" href="sms:+17252242217?&body=Hi%20ES%20Mobile%20Mechanics%2C%20I%20need%20help%20with%20my%20car.">Text us</a></div>
 
 <script>
-  var ans = {issue:'', area:''};
-  function dots(n){for(var i=1;i<=3;i++){document.getElementById('d'+i).className = i<=n ? 'done' : '';}}
-  function show(id){['q1','q2','q3','qdone'].forEach(function(x){document.getElementById(x).style.display = x===id ? 'block':'none';});}
-  function pick(step, el, val){
-    var sibs = el.parentNode.children;
-    for(var i=0;i<sibs.length;i++){sibs[i].classList.remove('sel');}
-    el.classList.add('sel');
-    if(step===1){ans.issue = val; setTimeout(function(){show('q2'); dots(2);}, 180);}
-    if(step===2){ans.area = val; setTimeout(function(){show('q3'); dots(3);}, 180);}
-  }
-  function back(step){ show('q'+step); dots(step); }
-  function finish(){
-    var ph = document.getElementById('qphone').value.trim();
-    var msg = 'Hi ES Mobile Mechanics, I need help with my car.\nProblem: ' + ans.issue + '\nArea: ' + ans.area + (ph ? '\nText me back at: ' + ph : '');
-    document.getElementById('smsbtn').href = 'sms:+17252242217?&body=' + encodeURIComponent(msg);
-    show('qdone'); dots(3);
-  }
-  var io = new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on'); io.unobserve(e.target);}});},{threshold:.12});
-  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+(function(){
+ var send=document.getElementById('send'),ph=document.getElementById('ph');
+ function val(n){var c=document.querySelector('input[name='+n+']:checked');return c?c.value:''}
+ function build(){
+  var m='Hi ES Mobile Mechanics, I need help with my car.',i=val('i'),a=val('a'),p=ph.value.trim();
+  if(i)m+='\nProblem: '+i; if(a)m+='\nArea: '+a; if(p)m+='\nText me back at: '+p;
+  send.href='sms:+17252242217?&body='+encodeURIComponent(m);
+ }
+ document.querySelector('.ticket').addEventListener('input',build);build();
+})();
 </script>
 </body>
 </html>
